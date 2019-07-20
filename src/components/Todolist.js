@@ -1,15 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {completeToDo} from '../actions';
 
 class Todolist extends React.Component {
   renderList() {
-  return this.props.list.map((item) => {
+    console.log(this.props)
+  return this.props.list.arr.map((item) => {
   return (
-    <div className="item">
-        <h3>List Item</h3>
+    <div className="item" key={item.key}>
+        <h3>{item.title}</h3>
     <div style={{float: 'right'}}>
-      <button className="ui button">
-        Remove
+      <button className="ui button" onClick={() => this.props.completeToDo(item)}>
+        Complete
       </button>
     </div>
       <div className="ui divider" style={{marginBottom: '10px'}}>
@@ -18,8 +20,8 @@ class Todolist extends React.Component {
   )
 });
  }
+
  render() {
-   console.log(this.props.list)
    return <div>{this.renderList()}</div>
  }
 
@@ -30,7 +32,7 @@ const mapStateToProps = (state) => {
   return {list: state.list};
 }
 
-export default connect(mapStateToProps,)(Todolist);
+export default connect(mapStateToProps, {completeToDo})(Todolist);
 
 
 

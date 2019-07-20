@@ -1,28 +1,27 @@
 import {combineReducers} from 'redux';
 
-// export const AddReducer = (list = null, action) => {
-//   console.log(action);
-//   return list
-// }
-
 export const listReducer = (listArray = [], action) => {
-
 let i = 0;
-
-  listArray =  [
-    {title: 'Do things', key: i++},
-    {title: 'stuff', key: i++},
-    {title: 'sleep', key: i++},
-    {title: 'eat', key: i++},
-  ];
+  listArray = {arr:  []};
 if (action.type === 'ADD_TODO') {
-    return {arr: [...listArray, {title: action.payload}]};
+    return {arr: [...listArray.arr, {title: action.payload, key: i++}]};
   } else {
     return listArray;
   }
 };
 
+export const completeReducer = (state, action) => {
+  console.log(state)
+
+if (action.type === 'COMPLETE_TODO') {
+    return {title: state};
+  } else {
+    return {title: 'jj'};
+  }
+};
+
+
 export default combineReducers({
-  // AddReducer: AddReducer
-  list: listReducer
+  list: listReducer,
+  completeReducer: completeReducer
 });
