@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
 
 export const listReducer = (listArray = [], action) => {
+
 let i = 0;
   listArray = {arr:  []};
 if (action.type === 'ADD_TODO') {
