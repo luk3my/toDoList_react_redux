@@ -1,17 +1,25 @@
+let i = 0
+
 export const setToDo = (value) => {
   console.log(value)
     return {
         type: "ADD_TODO",
-        payload: value
-
+        text: value,
+        completed: false,
+        id: i++
       }
 }
 
-export const completeToDo = (value) => {
-  console.log(value)
+export const completeToDo = (id) => {
     return {
         type: "COMPLETE_TODO",
-        payload: value
-
+        id: id
       }
+}
+
+export const removeToDo = (id) => {
+  return {
+    type: 'REMOVE_TODO',
+    id: id
+  }
 }

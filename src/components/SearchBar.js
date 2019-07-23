@@ -13,10 +13,10 @@ class SearchBar extends React.Component {
 render () {
   return (
     <div>
-      <div className="ui input focus">
+      <div className="ui input" style={{width: '50%'}}>
         <input id="search" type="text" placeholder="Add thing that needs doing" />
       </div>
-      <button onClick={() => this.props.setToDo(this.getSearchBarVal())} className="ui primary button">
+      <button onClick={() => this.props.setToDo(this.getSearchBarVal())} className="ui primary button" style={{marginLeft: '25px'}}>
         Add
       </button>
     </div>

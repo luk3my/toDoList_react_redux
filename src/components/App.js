@@ -5,10 +5,10 @@ import Todolist from './Todolist';
 const App = () => {
   return (
     <div>
-      <div>
+      <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar />
       </div>
-      <div className="ui list">
+        <div className="ui container" style={{marginTop: '10px'}}>
         <Todolist />
       </div>
     </div>
